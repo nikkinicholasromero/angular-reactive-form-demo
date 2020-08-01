@@ -16,24 +16,24 @@
   <div>
     Email Address:
     <input type="text" formControlName="emailAddress">
-    <div *ngIf="isFormFieldValid(profileForm, 'emailAddress')">
-      Email Address is required
+    <div *ngIf="validation.isFormFieldValid(profileForm.controls['emailAddress'])">
+      {{ validation.getErrorMessage(profileForm.controls['emailAddress'], 'Email Address') }}
     </div>
   </div>
   
   <div>
     First Name:
     <input type="text" formControlName="firstName">
-    <div *ngIf="isFormFieldValid(profileForm, 'firstName')">
-      First Name is required
+    <div *ngIf="validation.isFormFieldValid(profileForm.controls['firstName'])">
+      {{ validation.getErrorMessage(profileForm.controls['firstName'], 'First Name') }}
     </div>
   </div>
 
   <div>
     Last Name:
     <input type="text" formControlName="lastName">
-    <div *ngIf="isFormFieldValid(profileForm, 'lastName')">
-      Last Name is required
+    <div *ngIf="validation.isFormFieldValid(profileForm.controls['lastName'])">
+      {{ validation.getErrorMessage(profileForm.controls['lastName'], 'Last Name') }}
     </div>
   </div>
 
@@ -45,40 +45,40 @@
   <div>
     Street:
     <input type="text" formControlName="street">
-    <div *ngIf="isFormFieldValid(addressForm, 'street')">
-      Street is required
+    <div *ngIf="validation.isFormFieldValid(addressForm.controls['street'])">
+      {{ validation.getErrorMessage(addressForm.controls['street'], 'Street') }}
     </div>
   </div>
 
   <div>
     City:
     <input type="text" formControlName="city">
-    <div *ngIf="isFormFieldValid(addressForm, 'city')">
-      City is required
+    <div *ngIf="validation.isFormFieldValid(addressForm.controls['city'])">
+      {{ validation.getErrorMessage(addressForm.controls['city'], 'City') }}
     </div>
   </div>
   
   <div>
     State:
     <input type="text" formControlName="state">
-    <div *ngIf="isFormFieldValid(addressForm, 'state')">
-      Street is required
+    <div *ngIf="validation.isFormFieldValid(addressForm.controls['state'])">
+      {{ validation.getErrorMessage(addressForm.controls['state'], 'State') }}
     </div>
   </div>
 
   <div>
     Zip:
     <input type="text" formControlName="zip">
-    <div *ngIf="isFormFieldValid(addressForm, 'zip')">
-      Zip is required
+    <div *ngIf="validation.isFormFieldValid(addressForm.controls['zip'])">
+      {{ validation.getErrorMessage(addressForm.controls['zip'], 'Zip') }}
     </div>
   </div>
 
   <div>
     Country:
     <input type="text" formControlName="country">
-    <div *ngIf="isFormFieldValid(addressForm, 'country')">
-      Country is required
+    <div *ngIf="validation.isFormFieldValid(addressForm.controls['country'])">
+      {{ validation.getErrorMessage(addressForm.controls['country'], 'Country') }}
     </div>
   </div>
 

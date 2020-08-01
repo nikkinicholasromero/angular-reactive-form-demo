@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder, Validators, ValidationErrors, AbstractControl } from '@angular/forms';
+import { FormValidationService } from './form-validation.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms'
 export class AppComponent {
   name = new FormControl('');
   profileForm = new FormGroup({
-    emailAddress: new FormControl('', Validators.required),
+    emailAddress: new FormControl('', [ Validators.required, Validators.email ]),
     firstName: new FormControl('', Validators.required),
     lastName: new FormControl('', Validators.required)
   });
@@ -21,7 +22,8 @@ export class AppComponent {
     country: ['', Validators.required]
   });
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder,
+    public validation: FormValidationService) {}
 
   updateName() {
     this.name.setValue('Nancy');
@@ -31,9 +33,5 @@ export class AppComponent {
     Object.keys(form.controls).forEach(key => {
       console.log(form.get(key).value);
     });
-  }
-
-  isFormFieldValid(form: FormGroup, fieldName: string): boolean {
-    return form.controls[fieldName].dirty && form.controls[fieldName].invalid;
   }
 }
