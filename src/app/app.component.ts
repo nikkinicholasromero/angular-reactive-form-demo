@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -9,15 +9,15 @@ import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
 export class AppComponent {
   name = new FormControl('');
   profileForm = new FormGroup({
-    firstName: new FormControl(''),
-    lastName: new FormControl('')
+    firstName: new FormControl('', Validators.required),
+    lastName: new FormControl('', Validators.required)
   });
   addressForm = this.formBuilder.group({
-    street: [''],
-    city: [''],
-    state: [''],
-    zip: [''],
-    country: ['']
+    street: ['', Validators.required],
+    city: ['', Validators.required],
+    state: ['', Validators.required],
+    zip: ['', Validators.required],
+    country: ['', Validators.required]
   });
 
   constructor(private formBuilder: FormBuilder) {}

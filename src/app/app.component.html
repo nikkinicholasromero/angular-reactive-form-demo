@@ -32,6 +32,9 @@
 
   <button type="submit">Submit</button>
 
+  <p>
+    Form Status: {{ profileForm.status }}
+  </p>
 </form>
 
 <form [formGroup]="addressForm" (ngSubmit)="onSubmit(addressForm)">
@@ -79,5 +82,9 @@
 
   <button type="submit">Submit</button>
 
+  
+  <p>
+    Form Status: {{ addressForm.status }}
+  </p>
 </form>
 
