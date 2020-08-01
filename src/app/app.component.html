@@ -1,7 +1,7 @@
-<label>
+<div>
   Name:
   <input type="text" [formControl]="name">
-</label>
+</div>
 
 <p>
   Value: {{ name.value }}
@@ -13,15 +13,21 @@
 
 <form [formGroup]="profileForm" (ngSubmit)="onSubmit(profileForm)">
   
-  <label>
+  <div>
     First Name:
     <input type="text" formControlName="firstName">
-  </label>
+    <div *ngIf="profileForm.controls['firstName'].dirty && profileForm.controls['firstName'].invalid">
+      First Name is required
+    </div>
+  </div>
 
-  <label>
+  <div>
     Last Name:
     <input type="text" formControlName="lastName">
-  </label>
+    <div *ngIf="profileForm.controls['lastName'].dirty && profileForm.controls['lastName'].invalid">
+      Last Name is required
+    </div>
+  </div>
 
   <p>
     First Name: {{ profileForm.controls['firstName'].value }}
@@ -39,30 +45,45 @@
 
 <form [formGroup]="addressForm" (ngSubmit)="onSubmit(addressForm)">
   
-  <label>
+  <div>
     Street:
     <input type="text" formControlName="street">
-  </label>
+    <div *ngIf="addressForm.controls['street'].dirty && addressForm.controls['street'].invalid">
+      Street is required
+    </div>
+  </div>
 
-  <label>
+  <div>
     City:
     <input type="text" formControlName="city">
-  </label>
+    <div *ngIf="addressForm.controls['city'].dirty && addressForm.controls['city'].invalid">
+      City is required
+    </div>
+  </div>
   
-  <label>
+  <div>
     State:
     <input type="text" formControlName="state">
-  </label>
+    <div *ngIf="addressForm.controls['state'].dirty && addressForm.controls['state'].invalid">
+      Street is required
+    </div>
+  </div>
 
-  <label>
+  <div>
     Zip:
     <input type="text" formControlName="zip">
-  </label>
+    <div *ngIf="addressForm.controls['zip'].dirty && addressForm.controls['zip'].invalid">
+      Zip is required
+    </div>
+  </div>
 
-  <label>
+  <div>
     Country:
     <input type="text" formControlName="country">
-  </label>
+    <div *ngIf="addressForm.controls['country'].dirty && addressForm.controls['country'].invalid">
+      Country is required
+    </div>
+  </div>
 
   <p>
     Street: {{ addressForm.controls['street'].value }}
