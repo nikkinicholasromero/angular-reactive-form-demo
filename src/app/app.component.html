@@ -10,3 +10,26 @@
 <p>
   <button (click)="updateName()">Update Name</button>
 </p>
+
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  
+  <label>
+    First Name:
+    <input type="text" formControlName="firstName">
+  </label>
+
+  <label>
+    Last Name:
+    <input type="text" formControlName="lastName">
+  </label>
+
+  <p>
+    First Name: {{ profileForm.controls['firstName'].value }}
+  </p>
+  <p>
+    Last Name: {{ profileForm.controls['lastName'].value }}
+  </p>
+
+  <button type="submit">Submit</button>
+
+</form>
