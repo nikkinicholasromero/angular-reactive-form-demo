@@ -11,7 +11,7 @@
   <button (click)="updateName()">Update Name</button>
 </p>
 
-<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit(profileForm)">
   
   <label>
     First Name:
@@ -33,3 +33,51 @@
   <button type="submit">Submit</button>
 
 </form>
+
+<form [formGroup]="addressForm" (ngSubmit)="onSubmit(addressForm)">
+  
+  <label>
+    Street:
+    <input type="text" formControlName="street">
+  </label>
+
+  <label>
+    City:
+    <input type="text" formControlName="city">
+  </label>
+  
+  <label>
+    State:
+    <input type="text" formControlName="state">
+  </label>
+
+  <label>
+    Zip:
+    <input type="text" formControlName="zip">
+  </label>
+
+  <label>
+    Country:
+    <input type="text" formControlName="country">
+  </label>
+
+  <p>
+    Street: {{ addressForm.controls['street'].value }}
+  </p>
+  <p>
+    City: {{ addressForm.controls['city'].value }}
+  </p>
+  <p>
+    State: {{ addressForm.controls['state'].value }}
+  </p>
+  <p>
+    Zip: {{ addressForm.controls['zip'].value }}
+  </p>
+  <p>
+    Country: {{ addressForm.controls['country'].value }}
+  </p>
+
+  <button type="submit">Submit</button>
+
+</form>
+

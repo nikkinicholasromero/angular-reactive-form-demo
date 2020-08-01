@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -12,13 +12,23 @@ export class AppComponent {
     firstName: new FormControl(''),
     lastName: new FormControl('')
   });
+  addressForm = this.formBuilder.group({
+    street: [''],
+    city: [''],
+    state: [''],
+    zip: [''],
+    country: ['']
+  });
+
+  constructor(private formBuilder: FormBuilder) {}
 
   updateName() {
     this.name.setValue('Nancy');
   }
 
-  onSubmit() {
-    console.log(this.profileForm.controls['firstName'].value);
-    console.log(this.profileForm.controls['lastName'].value);
+  onSubmit(form: FormGroup) {
+    Object.keys(form.controls).forEach(key => {
+      console.log(form.get(key).value);
+    });
   }
 }
