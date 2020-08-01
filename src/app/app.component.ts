@@ -9,6 +9,7 @@ import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms'
 export class AppComponent {
   name = new FormControl('');
   profileForm = new FormGroup({
+    emailAddress: new FormControl('', Validators.required),
     firstName: new FormControl('', Validators.required),
     lastName: new FormControl('', Validators.required)
   });
@@ -30,5 +31,9 @@ export class AppComponent {
     Object.keys(form.controls).forEach(key => {
       console.log(form.get(key).value);
     });
+  }
+
+  isFormFieldValid(form: FormGroup, fieldName: string): boolean {
+    return form.controls[fieldName].dirty && form.controls[fieldName].invalid;
   }
 }

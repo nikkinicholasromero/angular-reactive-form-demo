@@ -14,9 +14,17 @@
 <form [formGroup]="profileForm" (ngSubmit)="onSubmit(profileForm)">
   
   <div>
+    Email Address:
+    <input type="text" formControlName="emailAddress">
+    <div *ngIf="isFormFieldValid(profileForm, 'emailAddress')">
+      Email Address is required
+    </div>
+  </div>
+  
+  <div>
     First Name:
     <input type="text" formControlName="firstName">
-    <div *ngIf="profileForm.controls['firstName'].dirty && profileForm.controls['firstName'].invalid">
+    <div *ngIf="isFormFieldValid(profileForm, 'firstName')">
       First Name is required
     </div>
   </div>
@@ -24,23 +32,12 @@
   <div>
     Last Name:
     <input type="text" formControlName="lastName">
-    <div *ngIf="profileForm.controls['lastName'].dirty && profileForm.controls['lastName'].invalid">
+    <div *ngIf="isFormFieldValid(profileForm, 'lastName')">
       Last Name is required
     </div>
   </div>
 
-  <p>
-    First Name: {{ profileForm.controls['firstName'].value }}
-  </p>
-  <p>
-    Last Name: {{ profileForm.controls['lastName'].value }}
-  </p>
-
   <button type="submit">Submit</button>
-
-  <p>
-    Form Status: {{ profileForm.status }}
-  </p>
 </form>
 
 <form [formGroup]="addressForm" (ngSubmit)="onSubmit(addressForm)">
@@ -48,7 +45,7 @@
   <div>
     Street:
     <input type="text" formControlName="street">
-    <div *ngIf="addressForm.controls['street'].dirty && addressForm.controls['street'].invalid">
+    <div *ngIf="isFormFieldValid(addressForm, 'street')">
       Street is required
     </div>
   </div>
@@ -56,7 +53,7 @@
   <div>
     City:
     <input type="text" formControlName="city">
-    <div *ngIf="addressForm.controls['city'].dirty && addressForm.controls['city'].invalid">
+    <div *ngIf="isFormFieldValid(addressForm, 'city')">
       City is required
     </div>
   </div>
@@ -64,7 +61,7 @@
   <div>
     State:
     <input type="text" formControlName="state">
-    <div *ngIf="addressForm.controls['state'].dirty && addressForm.controls['state'].invalid">
+    <div *ngIf="isFormFieldValid(addressForm, 'state')">
       Street is required
     </div>
   </div>
@@ -72,7 +69,7 @@
   <div>
     Zip:
     <input type="text" formControlName="zip">
-    <div *ngIf="addressForm.controls['zip'].dirty && addressForm.controls['zip'].invalid">
+    <div *ngIf="isFormFieldValid(addressForm, 'zip')">
       Zip is required
     </div>
   </div>
@@ -80,32 +77,12 @@
   <div>
     Country:
     <input type="text" formControlName="country">
-    <div *ngIf="addressForm.controls['country'].dirty && addressForm.controls['country'].invalid">
+    <div *ngIf="isFormFieldValid(addressForm, 'country')">
       Country is required
     </div>
   </div>
 
-  <p>
-    Street: {{ addressForm.controls['street'].value }}
-  </p>
-  <p>
-    City: {{ addressForm.controls['city'].value }}
-  </p>
-  <p>
-    State: {{ addressForm.controls['state'].value }}
-  </p>
-  <p>
-    Zip: {{ addressForm.controls['zip'].value }}
-  </p>
-  <p>
-    Country: {{ addressForm.controls['country'].value }}
-  </p>
-
   <button type="submit">Submit</button>
 
-  
-  <p>
-    Form Status: {{ addressForm.status }}
-  </p>
 </form>
 
